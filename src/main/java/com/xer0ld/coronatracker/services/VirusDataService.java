@@ -33,7 +33,7 @@ public class VirusDataService {
 
     //When you construct this service, execute this method and prints out the body
     @PostConstruct
-    @Scheduled(cron = "0 0 11 * * ?") //cron string to specify how often to run it, right now every second, fires at 11pm every noon
+    @Scheduled(cron = "0 0 11 * * ?") //(cron = "0 0 11 * * ?") //cron string to specify how often to run it, right now every second, fires at 11pm every noon
     public void fetchData() throws IOException, InterruptedException {
         List<LocationStats> newStats = new ArrayList<>();
 

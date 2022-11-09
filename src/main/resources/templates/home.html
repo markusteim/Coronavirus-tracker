@@ -12,20 +12,37 @@
 
 <body>
 
-<table>
-    <tr>
-        <th>Country</th>
-        <th>State</th>
-        <th>Total Cases</th>
-        <th>New Cases</th>
-    </tr>
-    <tr th:each="locationStat : ${locationStats}">
-        <td th:text="${locationStat.country}"></td>
-        <td th:text="${locationStat.state}"></td>
-        <td th:text="${locationStat.latestTotalCases}">0</td>
-        <td th:text="${locationStat.numberOfNewCases}">0</td>
-    </tr>
-</table>
+
+
+<div class="container">
+    <h1>Coronavirus Tracker</h1>
+    <p>You can view the list of all cases being reported globally</p>
+
+    <div class="jumbotron jumbotron-fluid bg-secondary text-white">
+        <h1 class="display-4" th:text="${totalNewCases}"></h1>
+        <p class="lead">Total number of new cases worldwide</p>
+        <hr class="my-4">
+        <p>
+            <span>Total number of reported cases as of today</span>
+            <span th:text="${totalReportedCases}"></span>
+        </p>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Country</th>
+            <th>State</th>
+            <th>Total Cases Reported</th>
+            <th>New Cases</th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.latestTotalCases}">0</td>
+            <td th:text="${locationStat.numberOfNewCases}">0</td>
+        </tr>
+    </table>
+</div>
 
 </body>
 
