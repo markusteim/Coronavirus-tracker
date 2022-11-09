@@ -7,7 +7,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.xml.stream.Location;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URI;
@@ -24,6 +23,10 @@ import java.util.List;
 public class VirusDataService {
 
     private static String VIRUS_DATA_URL = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
+
+    public List<LocationStats> getAllStats() {
+        return allStats;
+    }
 
     private List<LocationStats> allStats = new ArrayList<>();
 
@@ -58,7 +61,6 @@ public class VirusDataService {
             locationStat.setLatestTotalCases(latestTotalCases);
             locationStat.setNumberOfNewCases(numberOfNewCases);
 
-            System.out.println(locationStat);
             newStats.add(locationStat);
         }
         this.allStats = newStats;
